@@ -1,10 +1,11 @@
+const { syncAndSeed } = require("../db");
 const { expect } = require("chai");
-const app = require("../app");
+const { beforeEach } = require("mocha");
+const app = require("supertest")(require("../app"));
 
 describe("1st test", () => {
-  it("has a testSpec variable", () => {
-    const testSpec = null;
-    expect(testSpec).to.equal(null);
+  beforeEach(async () => {
+    syncAndSeed();
   });
 
   describe("home page get route", () => {
