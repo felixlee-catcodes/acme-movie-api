@@ -1,3 +1,7 @@
-const testVar = "this is a test";
+const express = require("express");
 
-module.exports = testVar;
+const app = express();
+
+app.get("/", (req, res) => res.send("hello world"));
+
+module.exports = app;
